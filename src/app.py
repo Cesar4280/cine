@@ -36,6 +36,11 @@ def render_registro():
 
     return render_template("registro.html")
 
+@app.route("/pelicula/", methods=["GET"])
+def render_peli():
+
+    return render_template("pelicula.html")
+
 @app.route("/admin/", methods=["GET"])
 def render_admin():
 
