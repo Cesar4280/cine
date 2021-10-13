@@ -37,22 +37,22 @@ def render_registro():
     return render_template("registro.html")
 
 @app.route("/admin/", methods=["GET"])
-def render_registro():
+def render_admin():
 
     return render_template("admin.html")
 
 @app.route("/compras/", methods=["GET"])
-def render_registro():
+def render_compras():
 
     return render_template("compras.html")
 
 @app.route("/login2/", methods=["GET"])
-def render_registro():
+def render_login2():
 
     return render_template("login.html")
 
 @app.route("/pagos/", methods=["GET"])
-def render_registro():
+def render_pagos():
 
     return render_template("pagos.html")
 
