@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Document</title>
+</head>
+
+<body class="bg-gray">
+
+    <div class="container my-5">
+        <div class="card bg-transparent border-0">
+            <div class="card-body p-4">
+                <form method="POST" action="/registro/" class="row g-3 needs-validation" novalidate>
+                    <div class="col-md-12">
+                        <label for="correo" class="text-light form-label lead">CORREO (<small
+                                class="text-danger">*</small>)</label>
+                        <input type="email" name="correo" class="form-control" id="correo" required>
+                        <div class="invalid-feedback">complete el campo</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="confirmar_correo" class="text-light form-label lead">CONFIRMAR CORREO (<small
+                                class="text-danger">*</small>)</label>
+                        <input type="email" class="form-control" id="confirmar_correo" required>
+                        <div class="invalid-feedback">complete el campo</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="contrasena" class="text-light form-label lead">CONTRASEÑA (<small
+                                class="text-danger">*</small>)</label>
+                        <input type="password" name="contrasena" class="form-control" id="contrasena" required>
+                        <div class="invalid-feedback">complete el campo</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="confirmar_contrasena" class="text-light form-label lead">CONFIRMAR CONTRASEÑA
+                            (<small class="text-danger">*</small>)</label>
+                        <input type="password" class="form-control"
+                            id="confirmar_contrasena" required>
+                        <div class="invalid-feedback">complete el campo</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="nombre" class="text-light form-label lead">NOMBRE (<small
+                                class="text-danger">*</small>)</label>
+                        <input type="text" name="nombre" class="form-control" id="nombre" required>
+                        <div class="invalid-feedback">complete el campo</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="apellidos" class="text-light text-light form-label lead">APELLIDOS (<small
+                                class="text-danger">*</small>)</label>
+                        <input type="text" name="apellidos" class="form-control" id="apellidos" required>
+                        <div class="invalid-feedback">complete el campo</div>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="tipo_documento" class="text-light text-light form-label lead">TIPO DE DOCUMENTO (<small
+                                class="text-danger">*</small>)</label>
+                        <select name="tipo_documento" id="tipo_documento" class="form-select" required>
+                            <option value="" selected>Seleccione...</option>
+                            <option value="CC">Cedula de ciudadanía</option>
+                            <option value="CE">Cedula de extranjería</option>
+                            <option value="DNI">Documento nacional de identidad</option>
+                            <option value="PA">Pasaporte</option>
+                        </select>
+                        <div class="invalid-feedback">complete el campo</div>
+                    </div>
+                    <div class="col-md-7">
+                        <label for="numero_documento" class="text-light form-label lead">NÚMERO DE DOCUMENTO (<small
+                                class="text-danger">*</small>)</label>
+                        <input type="number" name="numero_documento" class="form-control" id="numero_documento"
+                            required>
+                        <div class="invalid-feedback">complete el campo</div>
+                    </div>
+                    <fieldset class="col-12">
+                        <legend class="text-light lead">FECHA DE NACIMIENTO (<small class="text-danger">*</small>)</label></legend>
+                        <div class="row row-cols-3">
+                            <div class="col">
+                                <input type="number" name="dia_nacimiento" class="form-control" id="dia_nacimiento" placeholder="DIA" required>
+                                <div class="invalid-feedback">complete el campo</div>
+                            </div>
+                            <div class="col">
+                                <input type="number" name="mes_nacimiento" class="form-control" id="mes_nacimiento" placeholder="MES" required>
+                                <div class="invalid-feedback">complete el campo</div>
+                            </div>
+                            <div class="col">
+                                <input type="number" name="ano_nacimiento" class="form-control" id="ano_nacimiento" placeholder="AÑO" required>
+                                <div class="invalid-feedback">complete el campo</div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="col-md-12">
+                        <label for="departamento" class="text-light form-label lead">DEPARTAMENTO (<small
+                                class="text-danger">*</small>)</label>
+                        <input type="text" name="departamento" class="form-control" id="departamento" required>
+                        <div class="invalid-feedback">complete el campo</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="ciudad" class="text-light form-label lead">CIUDAD (<small
+                                class="text-danger">*</small>)</label>
+                        <input type="text" name="ciudad" class="form-control" id="ciudad" required>
+                        <div class="invalid-feedback">complete el campo</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="direccion" class="text-light form-label lead">DIRECCIÓN (<small
+                                class="text-danger">*</small>)</label>
+                        <input type="text" name="direccion" class="form-control" id="direccion" required>
+                        <div class="invalid-feedback">complete el campo</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="celular" class="text-light form-label lead">CELULAR (<small
+                                class="text-danger">*</small>)</label>
+                        <input type="tel" name="celular" class="form-control" id="celular" required>
+                        <div class="invalid-feedback">complete el campo</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="alias" class="text-light form-label lead">ALIAS (<small
+                                class="text-danger">*</small>)</label>
+                        <input type="text" name="alias" class="form-control" id="alias" required>
+                        <div class="invalid-feedback">complete el campo</div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="terminos" required>
+                            <label class="text-light form-check-label" for="terminos">
+                                Acepto los Términos y Condiciones de Uso del Portal. Para más información, Haga <a
+                                    class="text-decoration-none fw-bold" href="#">Clic Aquí.</a> (<small
+                                    class="text-danger">*</small>)</label>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="politicas" required>
+                            <label class="text-light form-check-label" for="politicas">
+                                En cumplimiento del Régimen de Protección Datos Personales, autorizo expresamente a Cine
+                                Colombia S.A.S, de manera directa, o a través de terceros designados, para almacenar,
+                                consultar, procesar y en general, para dar tratamiento a la información personal que
+                                suministre, y para ser incluido en sus bases de datos, recibir información de la
+                                Compañía, de conformidad con las políticas de privacidad y manejo de información. Para
+                                más información, <a class="text-decoration-none fw-bold" href="#">Clic
+                                    Aquí.</a> (<small class="text-danger">*</small>)</label>
+                            </label>
+                        </div>
+                    </div>
+                    <fieldset class="col-12">
+                        <legend class="text-light lead">Autorizo recibir información por:</legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="autorizaciones" id="email" value="email">
+                            <label class="text-light form-check-label" for="email">Correo Electrónico</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="autorizaciones" id="tel" value="tel">
+                            <label class="text-light form-check-label" for="tel">Llamada telefónica</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="autorizaciones" id="sms" value="sms">
+                            <label class="text-light form-check-label" for="sms">Mensajes de texto SMS (sin costo al usuario)</label>
+                        </div>
+                    </fieldset>
+                    <div class="d-grid col-md-4 col-lg-3 mx-auto">
+                        <input type="submit" value="REGISTRARME" class="btn btn-lg btn-danger">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/validacion.js') }}"></script>
+
+</body>
+
+</html>
