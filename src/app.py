@@ -36,6 +36,25 @@ def render_registro():
 
     return render_template("registro.html")
 
+@app.route("/admin/", methods=["GET"])
+def render_registro():
+
+    return render_template("admin.html")
+
+@app.route("/compras/", methods=["GET"])
+def render_registro():
+
+    return render_template("compras.html")
+
+@app.route("/login/", methods=["GET"])
+def render_registro():
+
+    return render_template("login.html")
+
+@app.route("/pagos/", methods=["GET"])
+def render_registro():
+
+    return render_template("pagos.html")
 
 @app.route("/registro/", methods=["POST"])
 def save_registro():
