@@ -12,7 +12,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-black">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid px-5 py-2">
             <a class="navbar-brand" href="/">
                 <img class="img-fluid w-75" src="{{ url_for('static', filename='img/logo.png') }}" alt="logo">
@@ -23,9 +23,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav mx-auto text-center">
-                    <a class="btn d-md-block btn-outline-danger px-5 rounded-0 border-2" href="/cartelera">CARTELERA</a>
-                    <div class="ms-5 position-relative">
-                        <input class="form-control me-2 rounded-start" type="search" aria-label="Search">
+                    <a class="btn mx-auto mx-lg-0 btn-outline-danger px-5 rounded-0 border-2 mt-4 mt-lg-0" href="/cartelera">CARTELERA</a>
+                    <div class="position-relative mx-auto ms-lg-5 mt-4 mt-lg-0 w-50">
+                        <input class="form-control me-lg-2 rounded-start" type="search" aria-label="Search">
                         <button
                             class="btn btn-dark border-danger border-2 rounded-circle position-absolute top-50 start-100 translate-middle"
                             type="submit">
@@ -37,7 +37,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="position-relative">
+                <div class="position-relative mx-auto mt-4 mt-lg-0 mx-lg-0 w-4rem">
                     <a class="btn btn-danger rounded-pill dropdown-login" href="/login">
                         <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi mb-5 pb-1 bi-chevron-down" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
