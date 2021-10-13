@@ -46,7 +46,7 @@ def render_registro():
 
     return render_template("compras.html")
 
-@app.route("/login/", methods=["GET"])
+@app.route("/login2/", methods=["GET"])
 def render_registro():
 
     return render_template("login.html")
