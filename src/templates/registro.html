@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base/base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Document</title>
-</head>
-
-<body class="bg-gray">
+{% block content %}
 
     <div class="container my-5">
         <div class="card bg-transparent border-0">
@@ -37,8 +27,7 @@
                     <div class="col-md-12">
                         <label for="confirmar_contrasena" class="text-light form-label lead">CONFIRMAR CONTRASEÑA
                             (<small class="text-danger">*</small>)</label>
-                        <input type="password" class="form-control"
-                            id="confirmar_contrasena" required>
+                        <input type="password" class="form-control" id="confirmar_contrasena" required>
                         <div class="invalid-feedback">complete el campo</div>
                     </div>
                     <div class="col-md-12">
@@ -68,23 +57,26 @@
                     <div class="col-md-7">
                         <label for="numero_documento" class="text-light form-label lead">NÚMERO DE DOCUMENTO (<small
                                 class="text-danger">*</small>)</label>
-                        <input type="number" name="numero_documento" class="form-control" id="numero_documento"
-                            required>
+                        <input type="number" name="numero_documento" class="form-control" id="numero_documento" required>
                         <div class="invalid-feedback">complete el campo</div>
                     </div>
                     <fieldset class="col-12">
-                        <legend class="text-light lead">FECHA DE NACIMIENTO (<small class="text-danger">*</small>)</label></legend>
+                        <legend class="text-light lead">FECHA DE NACIMIENTO (<small class="text-danger">*</small>)</label>
+                        </legend>
                         <div class="row row-cols-3">
                             <div class="col">
-                                <input type="number" name="dia_nacimiento" class="form-control" id="dia_nacimiento" placeholder="DIA" required>
+                                <input type="number" name="dia_nacimiento" class="form-control" id="dia_nacimiento"
+                                    placeholder="DIA" required>
                                 <div class="invalid-feedback">complete el campo</div>
                             </div>
                             <div class="col">
-                                <input type="number" name="mes_nacimiento" class="form-control" id="mes_nacimiento" placeholder="MES" required>
+                                <input type="number" name="mes_nacimiento" class="form-control" id="mes_nacimiento"
+                                    placeholder="MES" required>
                                 <div class="invalid-feedback">complete el campo</div>
                             </div>
                             <div class="col">
-                                <input type="number" name="ano_nacimiento" class="form-control" id="ano_nacimiento" placeholder="AÑO" required>
+                                <input type="number" name="ano_nacimiento" class="form-control" id="ano_nacimiento"
+                                    placeholder="AÑO" required>
                                 <div class="invalid-feedback">complete el campo</div>
                             </div>
                         </div>
@@ -155,7 +147,8 @@
                         </div>
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="autorizaciones" id="sms" value="sms">
-                            <label class="text-light form-check-label" for="sms">Mensajes de texto SMS (sin costo al usuario)</label>
+                            <label class="text-light form-check-label" for="sms">Mensajes de texto SMS (sin costo al
+                                usuario)</label>
                         </div>
                     </fieldset>
                     <div class="d-grid col-md-4 col-lg-3 mx-auto">
@@ -169,6 +162,4 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/validacion.js') }}"></script>
 
-</body>
-
-</html>
+{% endblock %}

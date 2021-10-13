@@ -16,11 +16,11 @@ def render_index():
         if film["estado"]
     ]
 
-    return render_template("index.html", films=active_films)
-
-@app.route("/menu/", methods=["GET"])
-def render_menu():
-    return render_template("menu.html")
+    return render_template(
+        "index.html",
+        title="bienvenidos",
+        films=active_films
+    )
 
 
 @app.route("/cartelera/", methods=["GET"])
@@ -32,13 +32,20 @@ def render_cartelera():
         not film["premier"]
     ]
 
-    return render_template("cartelera.html", films=films_not_premier)
+    return render_template(
+        "cartelera.html", 
+        title="cartelera", 
+        films=films_not_premier
+    )
 
 
 @app.route("/registro/", methods=["GET"])
 def render_registro():
 
-    return render_template("registro.html")
+    return render_template(
+        "registro.html",
+        title="registro"
+    )
 
 
 @app.route("/registro/", methods=["POST"])
@@ -84,7 +91,11 @@ def render_pelicula(id):
     ]
 
     if film_found:
-        return render_template("pelicula.html", film=film_found[0])
+        return render_template(
+            "pelicula.html", 
+            film=film_found[0],
+            title=film_found[0]["titulo_original"]  
+        )
 
     return jsonify({
         "code": 404,
@@ -230,17 +241,16 @@ def delete_film(id):
             film_found[0]["estado"] = False
 
             return jsonify({
-            "code": 400,
-            "status": "ok",
-            "message": "pelicula eliminada correctamente"
-        })
+                "code": 400,
+                "status": "ok",
+                "message": "pelicula eliminada correctamente"
+            })
 
         return jsonify({
             "code": 409,
             "status": "conflict",
             "message": "la pelicula indicada se encuentra inactiva"
         })
-
 
     return jsonify({
         "code": 404,

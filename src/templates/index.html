@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Bienvenido al Home!!!</h1>
+{% extends "base/base.html" %}
+
+{% block content %}
+
+    <h1 class="text-light">Bienvenido al Home!!!</h1>
+
     <ul>
         {% for film in films: %}
-            <li> {{ film["nombre_imagen"] }} </li>
+        <li class="text-light"> {{ film["nombre_imagen"] }} </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+{% endblock %}
