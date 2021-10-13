@@ -18,6 +18,10 @@ def render_index():
 
     return render_template("index.html", films=active_films)
 
+@app.route("/menu/", methods=["GET"])
+def render_menu():
+    return render_template("menu.html")
+
 
 @app.route("/cartelera/", methods=["GET"])
 def render_cartelera():
