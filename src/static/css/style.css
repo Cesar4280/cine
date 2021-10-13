@@ -4,3 +4,7 @@
 .bg-black {
     background: #000;
 }
+.dropdown-login {
+    width: 4rem; 
+    height: 1.55rem;
+}
