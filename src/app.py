@@ -41,6 +41,11 @@ def render_peli():
 
     return render_template("pelicula.html")
 
+@app.route("/pelispedia/", methods=["GET"])
+def render_pelispedia():
+
+    return render_template("pelis.html")
+
 @app.route("/admin/", methods=["GET"])
 def render_admin():
 
