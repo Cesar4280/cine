@@ -1,3 +1,13 @@
 .bg-gray {
     background: #363636;
 }
+.bg-black {
+    background: #000;
+}
+.dropdown-login {
+    width: 4rem; 
+    height: 1.55rem;
+}
+.w-4rem {
+    width: 4rem; 
+}
