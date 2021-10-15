@@ -11,3 +11,53 @@
 .w-4rem {
     width: 4rem; 
 }
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  .body {
+    background-color: #363636;
+  }
+
+  h1 {
+    color: #ffffff;
+    text-shadow: 0px 4px 4px #B5121B;
+  }
+
+  .bs {
+
+    background: #C4C4C4;
+    box-shadow: 0px 4px 4px rgba(181, 18, 27, 0.66);
+
+  }
+
+  .card {
+    background: #C4C4C4;
+    padding: 10px;
+    width: 342px;
+    height: 692px;
+  }
+
+  .cb{
+    flex:1 1 auto;
+    padding:1rem 1rem
+  }
+
+  .ctext{
+    margin-bottom:0
+  }
+
+  .text-tiempo{
+    --bs-text-opacity:1;
+    color:#6c757d!important
+  }
