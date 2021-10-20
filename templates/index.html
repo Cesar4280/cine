@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Inicio</title>
 </head>
+
 <body class="bg-gray">
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
         <div class="container-fluid px-5 py-2">
@@ -55,16 +57,174 @@
             </div>
         </div>
     </nav>
-    <h1>Bienvenido al Home!!!</h1>
+
+    <main>
+
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-4 col-md-8 mx-auto">
+                    <h1 class=".fontf">ESTRENOS</h1>
+                </div>
+            </div>
+        </section>
+
+        <div class="album py-2 bg-light, body">
+            <div class="container">
+
+                <div class="row row-cols-2 row-cols-sm-1 row-cols-md-3 g-4">
+                    <div>
+                        <div class="card">
+                            <svg class="bs" width="100%" height="451" role="img" aria-label="Placeholder: Thumbnail"
+                                preserveAspectRatio="xMidYMid slice" focusable="false" onclick=""><a
+                                    href="/pelispedia/"></a>
+                            </svg>
+
+                            <div class="cb">
+                                <p id="p1" class="ctext">
+
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <small class="text-tiempo">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="card">
+                            <svg class="bs" width="100%" height="451" role="img" aria-label="Placeholder: Thumbnail"
+                                preserveAspectRatio="xMidYMid slice" focusable="false">
+
+                                <rect width="90%" height="90%" fill="#C4C4C4" />
+                            </svg>
+
+                            <div class="cb">
+                                <p id="p1" class="ctext">
+
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <small class="text-tiempo">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="card">
+                            <svg class="bs" width="100%" height="451" role="img" aria-label="Placeholder: Thumbnail"
+                                preserveAspectRatio="xMidYMid slice" focusable="false">
+
+                                <rect width="90%" height="90%" fill="#C4C4C4" />
+                            </svg>
+
+                            <div class="cb">
+                                <p id="p1" class="ctext">
+
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <small class="text-tiempo">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <main>
+
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-4 col-md-8 mx-auto">
+                    <h1 class=".fontf">CARTELERA</h1>
+                </div>
+            </div>
+        </section>
+
+        <div class="album py-2 bg-light, body">
+            <div class="container">
+
+                <div class="row row-cols-2 row-cols-sm-1 row-cols-md-3 g-4">
+                    <div>
+                        <div class="card">
+                            <svg class="bs" width="100%" height="451" role="img" aria-label="Placeholder: Thumbnail"
+                                preserveAspectRatio="xMidYMid slice" focusable="false" onclick=""><a
+                                    href="/pelispedia/"></a>
+                            </svg>
+
+                            <div class="cb">
+                                <p id="p1" class="ctext">
+
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <small class="text-tiempo">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="card">
+                            <svg class="bs" width="100%" height="451" role="img" aria-label="Placeholder: Thumbnail"
+                                preserveAspectRatio="xMidYMid slice" focusable="false">
+
+                                <rect width="90%" height="90%" fill="#C4C4C4" />
+                            </svg>
+
+                            <div class="cb">
+                                <p id="p1" class="ctext">
+
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <small class="text-tiempo">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="card">
+                            <svg class="bs" width="100%" height="451" role="img" aria-label="Placeholder: Thumbnail"
+                                preserveAspectRatio="xMidYMid slice" focusable="false">
+
+                                <rect width="90%" height="90%" fill="#C4C4C4" />
+                            </svg>
+
+                            <div class="cb">
+                                <p id="p1" class="ctext">
+
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                    <small class="text-tiempo">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- <h1>Bienvenido al Home!!!</h1>
     <ul>
         {% for film in films: %}
-            <li> {{ film["nombre_imagen"] }} </li>
+        <li> {{ film["nombre_imagen"] }} </li>
         {% endfor %}
     </ul>
-   
-    <p align="center"><a href=/pelispedia/><button class=grey style="height:75px;width:150px">Pelicula</button></a></p>
-    <br>
-    
+
+    <p align="center"><a href=/pelispedia /><button class=grey style="height:75px;width:150px">Pelicula</button></a></p>
+    <br> -->
+
 
 </body>
+
 </html>

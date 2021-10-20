@@ -77,8 +77,8 @@
     color: #B5121B;
   }
   .textcolor{
-    --bs-text-opacity:1;
-    color: #B5121B!important;
+    color: #B5121B;
+    font-size: medium;
   }
   
   .form-signin .form-floating:focus-within {
@@ -99,7 +99,3 @@
     border-top-right-radius: 0;
   }
   
-  .text-muted{
-    --bs-text-opacity:1;
-    color:#6c757d!important
-  }
