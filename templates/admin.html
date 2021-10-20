@@ -58,6 +58,104 @@
     </nav>
     <h1>Dashboard administrarivo</h1>
     
+    <div class="container-fluid">
+		<div class="container">
+ 			<hr>
+			<div class="row">
+				<div class="col-md-5">
+ 					<form role="form" method="post" action="register.php">
+						<fieldset>							
+							<label for="crear pelicula" class="text-light form-label lead">Crear Pelicula</label>
+                            <br>
+ 							<div class="col-md-12">
+								<input type="text" name="pelicula" id="pelic" class="form-control input-lg" placeholder="Nombre de la Pelicula">
+							</div>
+
+                            <div class="col-md-12">
+								<input type="text" name="peliculaO" id="pelicOr" class="form-control input-lg" placeholder="Nombre Original de la Pelicula">
+							</div>
+
+                            <div class="col-md-12">
+								<input type="text" name="genero" id="genero" class="form-control input-lg" placeholder="Genero y Clasificación">
+							</div>
+
+                            <div class="col-md-12">
+								<input type="text" name="estreno" id="estreno" class="form-control input-lg" placeholder="Fecha de Estreno y Duración">
+							</div>
+
+
+                            <div class="col-md-12">
+								<input type="text" name="dir" id="dir" class="form-control input-lg" placeholder="Director y Elenco">
+							</div>
+
+                            <div class="col-md-12">
+								<input type="text" name="Syp" id="syp" class="form-control input-lg" placeholder="Sypnosis">
+							</div>
+							<br>
+ 							<div>
+ 									  <input type="submit" class="btn btn-lg btn-danger"   value="Crear">
+ 							</div>
+						</fieldset>
+					</form>
+				</div>
+				
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+				
+				<div class="col-md-5">
+ 				 		<form role="form">
+						<fieldset>							
+							<label for="buscar" class="text-light form-label lead">Buscar Usuario</label>	
+                            <br>
+                            <div class="col-md-12">
+                                <label for="cedula" class="text-light form-label lead">Documento</label>
+                                <input type="text" name="doc" class="form-control input-lg">
+                                
+                            </div>
+                            <br>
+ 							<div>
+ 									  <input type="submit" class="btn btn-lg btn-danger"   value="Buscar">
+ 							</div>
+                            <br>
+                            <label for="res" class="text-light form-label lead">Resultado:</label>
+                            <br>
+							<div class="col-md-12">
+                                <label for="nombre" class="text-light form-label lead">NOMBRE </label>
+                                <input type="text" name="nombre" class="form-control input-lg">
+                                
+                            </div>
+                            <div class="col-md-12">
+                                <label for="apellido" class="text-light form-label lead">APELLIDO </label>
+                                <input type="text" name="apellido" class="form-control input-lg">
+                                
+                            </div>
+                            <div class="col-md-12">
+                                <label for="correo" class="text-light form-label lead">CORREO</label>
+                                <input type="text" name="correo" class="form-control input-lg">
+                                
+                            </div>
+                            <div class="col-md-12">
+                                <label for="DIR" class="text-light form-label lead">DIRECCIÓN</label>
+                                <input type="text" name="dir" class="form-control input-lg">
+                                
+                            </div>
+							
+                            <div class="col-md-12">
+                                <label for="nas" class="text-light form-label lead">Fecha de Nacimiento</label>
+                                <input type="text" name="dir" class="form-control input-lg">
+                                
+                            </div>
+                            
+
+								 
+ 						</fieldset>
+				</form>	
+				</div>
+			</div>
+		</div>
+		
+	</div>
     
 
 </body>
