@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 
-    <title>Administrador</title>
+    <title>Super Administrador</title>
 </head>
 <body class="bg-gray">
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
@@ -60,7 +60,7 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
           <div class="col-lg-4 col-md-8 mx-auto">
-            <h1 class=".fontf">Dashboard administrarivo</h1>
+            <h1 class=".fontf">Dashboard Super Administrarivo</h1>
           </div>
         </div>
     </section>
@@ -71,6 +71,49 @@
  			<hr>
 			<div class="row">
 				<div class="col-md-5">
+ 					<form role="form" method="post" action="crear.php">
+						<fieldset>							
+							<label for="crear pelicula" class="text-light form-label lead">Crear Pelicula</label>
+                            <br>
+ 							<div class="col-md-12">
+								<input type="text" name="pelicula" id="pelic" class="form-control input-lg" placeholder="Nombre de la Pelicula">
+							</div>
+
+                            <div class="col-md-12">
+								<input type="text" name="peliculaO" id="pelicOr" class="form-control input-lg" placeholder="Nombre Original de la Pelicula">
+							</div>
+
+                            <div class="col-md-12">
+								<input type="text" name="genero" id="genero" class="form-control input-lg" placeholder="Genero y Clasificación">
+							</div>
+
+                            <div class="col-md-12">
+								<input type="text" name="estreno" id="estreno" class="form-control input-lg" placeholder="Fecha de Estreno y Duración">
+							</div>
+
+
+                            <div class="col-md-12">
+								<input type="text" name="dir" id="dir" class="form-control input-lg" placeholder="Director y Elenco">
+							</div>
+
+                            <div class="col-md-12">
+								<input type="text" name="Syp" id="syp" class="form-control input-lg" placeholder="Sypnosis">
+							</div>
+							<br>
+                            <div class="col-md-12">
+								<input type="text" name="Syp" id="syp" class="form-control input-lg" placeholder="Horario">
+							</div>
+							<br>
+                            <label for="nombre" class="text-light form-label lead">Imagen </label>
+                            <input type="file" id="img" name="img" accept="image/*">
+                            <br>
+ 							<div>
+ 									  <input type="submit" class="btn btn-lg btn-danger"   value="Crear">
+ 							</div>
+						</fieldset>
+					</form>
+
+                    <br>
                     <form role="form" method="post" action="buscar.php">
 						<fieldset>							
 							<label for="Editar pelicula" class="text-light form-label lead">Buscar Pelicula</label>
@@ -156,6 +199,11 @@
                                 
                             </div>
                             <div class="col-md-12">
+                                <label for="cedula" class="text-light form-label lead">Documento</label>
+                                <input type="text" name="doc" class="form-control input-lg">
+                                
+                            </div>
+                            <div class="col-md-12">
                                 <label for="apellido" class="text-light form-label lead">APELLIDO </label>
                                 <input type="text" name="apellido" class="form-control input-lg">
                                 
@@ -176,9 +224,10 @@
                                 <input type="text" name="dir" class="form-control input-lg">
                                 
                             </div>
-				<br>
+				            <br>
                             <div>
                                 <input type="submit" class="btn btn-lg btn-danger"   value="Editar">
+                                <input type="submit" class="btn btn-lg btn-danger"   value="Crear">
                             </div>
                             
 

@@ -51,6 +51,11 @@ def render_admin():
 
     return render_template("admin.html")
 
+@app.route("/adminsuper/", methods=["GET"])
+def render_adminsuper():
+
+    return render_template("adminsuper.html")
+
 @app.route("/compras/", methods=["GET"])
 def render_compras():
 
