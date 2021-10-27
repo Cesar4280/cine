@@ -4,9 +4,109 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <title>Pagos</title>
 </head>
 <body class="bg-gray">
-    <h1>Pasarela de Pagos</h1>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container-fluid px-5 py-2">
+            <a class="navbar-brand" href="/">
+                <img class="img-fluid w-75" src="{{ url_for('static', filename='img/logo.png') }}" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav mx-auto text-center">
+                    <a class="btn mx-auto mx-lg-5 btn-outline-danger px-5 rounded-0 border-2 mt-4 mt-lg-0"
+                        href="/cartelera">CARTELERA</a>
+                    <div class="position-relative mx-auto ms-lg-0 mt-4 mt-lg-0 w-50">
+                        <input class="form-control me-lg-2 rounded-start" type="search" aria-label="Search">
+                        <button
+                            class="btn btn-dark border-danger border-2 rounded-circle position-absolute top-50 start-100 translate-middle"
+                            type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-search mb-1" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="position-relative mx-auto mt-4 mt-lg-0 mx-lg-0 w-4rem">
+                    <a class="btn btn-danger rounded-pill dropdown-login" href="/login2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor"
+                            class="bi mb-5 pb-1 bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </a>
+                    <div class="position-absolute top-50 start-100 translate-middle bg-dark rounded-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                            class="bi text-danger bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-4 col-md-8 mx-auto">
+            <h1 class=".fontf">Pasarela de Pagos</h1>
+          </div>
+        </div>
+    </section>
+
+</section>
+<section id="right">
+    <form action="#">
+        <div id="form-numbers" class="form-field">
+            <label for="cc-number"  class="text-light form-label lead">Numero de Tiquetes:</label>
+            <input id="Tickets" placeholder="1" required>
+        </div>
+        <div id="form-card" class="form-field">
+            <label for="cc-number"  class="text-light form-label lead">Numero de Tarjeta:</label>
+            <input id="cc-number" maxlength="19" placeholder="1111 2222 3333 4444" required>
+        </div>
+
+        <div id="form-date" class="form-field">
+            <label for="expiry-month"  class="text-light form-label lead">Fecha de expiracion:</label>
+            <div id="date-val">
+                <select id="expiry-month" required>
+                                                        <option id="trans-label_month" value="" default="default" selected="selected">Month</option>
+                                                        <option value="1">01</option>
+                                                        <option value="2">02</option>
+                                                        <option value="3">03</option>
+                                                        <option value="4">04</option>
+                                                        <option value="5">05</option>
+                                                        <option value="6">06</option>
+                                                        <option value="7">07</option>
+                                                        <option value="8">08</option>
+                                                        <option value="9">09</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                </select>
+                <select id="expiry-year" required>
+                                                        <option id="trans-label_year" value="" default="" selected="selected">Year</option>
+                                                <option value="2018">18</option><option value="2019">19</option><option value="2020">20</option><option value="2021">21</option><option value="2022">22</option><option value="2023">23</option><option value="2024">24</option><option value="2025">25</option><option value="2026">26</option><option value="2027">27</option><option value="2028">28</option><option value="2029">29</option><option value="2030">30</option><option value="2031">31</option><option value="2032">32</option><option value="2033">33</option><option value="2034">34</option><option value="2035">35</option><option value="2036">36</option><option value="2037">37</option><option value="2038">38</option><option value="2039">39</option><option value="2040">40</option><option value="2041">41</option><option value="2042">42</option><option value="2043">43</option><option value="2044">44</option><option value="2045">45</option><option value="2046">46</option><option value="2047">47</option></select>
+            </div>
+        </div>
+        
+        <div id="form-sec-code" class="form-field">
+            <label for="sec-code"  class="text-light form-label lead">Codigo de Seguridad:</label>
+            <input type="password" maxlength="3" placeholder="123" required>
+        </div>
+        
+        <button type="submit">Comprar Tiquete</button>
+    </form>
+</section>
 </body>
 </html>

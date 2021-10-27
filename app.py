@@ -66,6 +66,11 @@ def render_login2():
 
     return render_template("login.html")
 
+@app.route("/perfil/", methods=["GET"])
+def render_perfil():
+
+    return render_template("perfil.html")
+
 @app.route("/pagos/", methods=["GET"])
 def render_pagos():
 
