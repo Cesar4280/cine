@@ -1,15 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Peliculas</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Cinema Cinefilos - Películas -</title>
+
+
 </head>
-<body>
-    
-    <h1>Peliculas</h1>
-    <br>
-    <p align="center"><a href=/compras/><button class=grey style="height:75px;width:150px">Compras</button></a></p>
+
+<body class=>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container-fluid px-5 py-2">
+            <a class="navbar-brand" href="/">
+                <img class="img-fluid w-75" src="{{ url_for('static', filename='img/logo.png') }}" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav mx-auto text-center">
+                    <a class="btn mx-auto mx-lg-5 btn-outline-danger px-5 rounded-0 border-2 mt-4 mt-lg-0"
+                        href="/cartelera">CARTELERA</a>
+                    <div class="position-relative mx-auto ms-lg-0 mt-4 mt-lg-0 w-50">
+                        <input class="form-control me-lg-2 rounded-start" type="search" aria-label="Search">
+                        <button
+                            class="btn btn-dark border-danger border-2 rounded-circle position-absolute top-50 start-100 translate-middle"
+                            type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-search mb-1" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="position-relative mx-auto mt-4 mt-lg-0 mx-lg-0 w-4rem">
+                    <a class="btn btn-danger rounded-pill dropdown-login" href="/login2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor"
+                            class="bi mb-5 pb-1 bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </a>
+                    <div class="position-absolute top-50 start-100 translate-middle bg-dark rounded-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                            class="bi text-danger bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="app" class="cine-app">
+        <div>
+            <section class="movie-banner is-hidden-mobile">
+                <div class="movie-banner-wrapper">
+                    <div class="container movie-banner-container">
+                        <div class="columns is-gapless is-centered">
+                            <div class="column is-9">
+                                <div class="movie-banner-main  aos-animate">
+                                    <!-- imagen o video Trailer -->
+                                    <figure class="movie-banner-main__image"><img data-src="" alt="" width="1000"
+                                            height="500" src="">
+                                    </figure>
+                                    <div class="movie-banner-main__content">
+                                        <div data-aos-delay="50" data-aos="fade-right"
+                                            class="movie-banner-main__info  aos-animate">
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div data-aos-delay="20" data-aos="fade-up" class="column is-3  aos-animate">
+                                <!-- Imagen Poster -->
+                                <figure class="movie-banner-poster">
+                                    <img data-src="" alt="" width="360" height="550" src="">
+                                </figure>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="bg">
+                <div class="container container--full-width">
+                    <div class="columns is-gapless-mobile">
+                        <div class="column is-4">
+                            <section class="movie-info-section u-pb-0">
+                                <div class="movie-info is-hidden-tablet">
+                                    <div data-aos="fade-right" class="movie-info__image-wrapper aos-init aos-animate">
+
+                                    </div>
+
+                                </div>
+                                <div class="movie-info__basics">
+                                    <h2 class="title movie-info__title">
+                                        <span class="ezstring-field">
+                                            Venom: Carnage Liberado
+                                        </span>
+                                    </h2>
+                                    <br>
+                                    <br>
+                                    <span class="movie-info__meta movie-item__meta--bold">
+                                        Título en inglés:
+                                        <span class="ezstring-field">
+                                            Venom: Let There Be Carnage
+                                        </span>
+                                    </span>
+                                    <br>
+                                    <span class="movie-info__meta">
+                                        <div class="ezselection-field">
+                                            Recomendada para Mayores de 12 años
+                                        </div>
+                                    </span>
+                                    <br>
+                                    <span class="movie-info__meta">
+                                        <span class="ezinteger-field">
+                                            90
+                                        </span>
+                                        Min
+                                    </span>
+                                    <br>
+                                    <span class="movie-info__meta">
+                                        Estreno: 07-Oct-2021
+                                    </span>
+                                    <br>
+                                    <span class="movie-info__meta">
+                                        Género: Acción, Marvel, Suspenso
+                                    </span>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="movie-actions">
+                                    <span>
+                                        Sinopsis
+                                    </span>
+                                </div>
+                                
+
+
+                                    <div class="movie-details__block">
+                                        <p>
+                                            Eddie y Venom están luchando por coexistir cuando el simbionte más
+                                            grande y malo se une con Cletus Kasady, un asesino en serie
+                                            psicótico, desatando Carnage. Tom Hardy regresa a la pantalla grande
+                                            como el protector letal Venom, uno de los personajes más grandes y
+                                            complejos de MARVEL.
+                                        </p>
+                                    </div>
+                                    <div class="movie-details__block">
+                                        <h6 class="title is-6">
+                                            Título Original
+                                        </h6>
+                                        <p>
+                                            Venom: Let There Be Carnage
+                                        </p>
+                                    </div>
+                                    <div class="movie-details__block">
+                                        <h6 class="title is-6">
+                                            País de Origen
+                                        </h6>
+                                        <p>
+                                            United States of America
+                                        </p>
+                                    </div>
+                                    <div class="movie-details__block">
+                                        <h6 class="title is-6">
+                                            Director
+                                        </h6>
+                                        <p>
+                                            Andy Serkis
+                                        </p>
+                                    </div>
+                                    <div class="movie-details__block">
+                                        <h6 class="title is-6">
+                                            Actores
+                                        </h6>
+                                        <p>
+                                            Tom Hardy, Michelle Williams, Naomie Harris, Reid Scott, Stephen
+                                            Graham y Woody Harrelson.
+                                        </p>
+                                    </div>
+
+
+                                
+                            </section>
+                        </div>
+                        <div class="column is-8">
+                            <div class="is-relative">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
 </body>
+
 </html>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Pagos</title>
+    <title>Cinema Cinefilos - Pagos</title>
 </head>
 <body class="bg-gray">
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
@@ -59,7 +59,9 @@
     <section class="py-5 text-center container">
         <div class="row py-lg-5">
           <div class="col-lg-4 col-md-8 mx-auto">
-            <h1 class=".fontf">Pasarela de Pagos</h1>
+            <h2 class=".fontf">
+                Pasarela de Pagos
+            </h2>
           </div>
         </div>
     </section>
@@ -71,7 +73,7 @@
             <label for="cc-number"  class="text-light form-label lead">Numero de Tiquetes:</label>
             <input id="Tickets" placeholder="1" required>
         </div>
-        <div id="form-card" class="form-field">
+        <!-- <div id="form-card" class="form-field">
             <label for="cc-number"  class="text-light form-label lead">Numero de Tarjeta:</label>
             <input id="cc-number" maxlength="19" placeholder="1111 2222 3333 4444" required>
         </div>
@@ -103,7 +105,7 @@
         <div id="form-sec-code" class="form-field">
             <label for="sec-code"  class="text-light form-label lead">Codigo de Seguridad:</label>
             <input type="password" maxlength="3" placeholder="123" required>
-        </div>
+        </div> -->
         
         <button type="submit">Comprar Tiquete</button>
     </form>
