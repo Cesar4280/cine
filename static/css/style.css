@@ -152,7 +152,15 @@ html,
   #right form #date-val select {
     width: 45%;
   }
-  
+  .btn{
+    background-color: #B5121B;
+    border-radius: 50px;
+    color: white;
+    font-weight: 400;
+    font-size: 12pt;
+    margin-top: 10px;
+  }
+
   #right form button[type=submit] {
     background: linear-gradient(135deg, #b5121b 0%, #f8444d 100%);
     padding: 5px;
@@ -381,3 +389,38 @@ print {
     width: calc(100% + (1.625rem * 2));
     margin: 0 -1.625rem
 } 
+
+/* chek */
+.list-group {
+  width: auto;
+  max-width: 460px;
+  margin: 4rem auto;
+}
+
+.list-group-checkable {
+  display: grid;
+  gap: .5rem;
+  border: 0;
+}
+.list-group-checkable .list-group-item {
+  cursor: pointer;
+  border-radius: .5rem;
+}
+.list-group-item-check {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+.list-group-item-check:hover + .list-group-item {
+  background-color: var(--bs-light);
+}
+.list-group-item-check:checked + .list-group-item {
+  color: #fff;
+  background-color: #b5121a86;
+}
+.list-group-item-check[disabled] + .list-group-item,
+.list-group-item-check:disabled + .list-group-item {
+  pointer-events: none;
+  filter: none;
+  opacity: .5;
+}
