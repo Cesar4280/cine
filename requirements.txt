@@ -1,0 +1,4 @@
+flask
+Flask-BS4
+timestamp
+pysqlite3

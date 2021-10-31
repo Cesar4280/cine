@@ -1,13 +1,14 @@
 from flask import Flask, jsonify, url_for, request, redirect, render_template
 from helper import timestamp
-from data.film import films
-from data.user import users
+from data import setup
+from data.database import DB_Cinema
 
 app = Flask(__name__)
 
+setup.create_tables()
+db = DB_Cinema()
+
 # renderizar la vista principal
-
-
 @app.route("/", methods=["GET"])
 def render_index():
 
@@ -38,7 +39,6 @@ def render_cartelera():
         films=films_not_premier
     )
 
-
 @app.route("/registro/", methods=["GET"])
 def render_registro():
 
@@ -47,39 +47,198 @@ def render_registro():
         title="registro"
     )
 
+@app.route("/todosUsuarios/", methods=["GET"])
+def find_all_users():
+
+    all_users = db.view_all_users()
+    if all_users:
+        return jsonify({
+            "code": 200,
+            "data": all_users,
+            "status": "ok",
+            "message": "Usuarios encontrados exitosamente",
+            "timestamp": timestamp()
+        })
+    elif all_users == False:
+        return jsonify({
+            "code": 500,
+            "data": {},
+            "status": "error",
+            "message": "Error buscando usuarios",
+            "timestamp": timestamp()
+        })
+    else:
+            return jsonify({
+            "code": 200,
+            "data": {},
+            "status": "ok",
+            "message": "No hay Usuarios",
+            "timestamp": timestamp()
+        })
+
+@app.route("/buscarUsuarios/", methods=["POST"])
+def find_users():
+
+    registro = {
+        "count": request.form.get("numero_usuarios")
+    }
+
+    registro = request.json['count']
+    users = db.view_users(registro)
+    if users:
+        return jsonify({
+            "code": 200,
+            "data": users,
+            "status": "ok",
+            "message": "Usuarios encontrados exitosamente",
+            "timestamp": timestamp()
+        })
+    return jsonify({
+        "code": 500,
+        "data": registro,
+        "status": "error",
+        "message": "Error buscando usuarios",
+        "timestamp": timestamp()
+        })
+
+@app.route("/buscarUsuario/", methods=["POST"])
+def find_user():
+
+    registro = {
+        "userid": request.form.get("numero_documento")
+    }
+
+    registro = request.json['userid']
+    user_id = db.view_user(registro)
+    if user_id:
+        return jsonify({
+            "code": 200,
+            "data": user_id,
+            "status": "ok",
+            "message": "Usuario encontrado exitosamente",
+            "timestamp": timestamp()
+        })
+    return jsonify({
+        "code": 500,
+        "data": registro,
+        "status": "error",
+        "message": "Error buscando usuario",
+        "timestamp": timestamp()
+        })
+
 
 @app.route("/registro/", methods=["POST"])
 def save_registro():
 
+    # registro = {
+    #     "userid": request.form.get("numero_documento"),
+    #     "nombre": request.form.get("nombre"),
+    #     "apellido": request.form.get("apellidos"),
+    #     "alias": request.form.get("alias"),
+    #     "tipoDoc": request.form.get("tipo_documento"),
+    #     "numeroCelular": request.form.get("celular"),
+    #     "email": request.form.get("correo"),
+    #     "direccion": request.form.get("direccion"),
+    #     "dia_nacimiento": request.form.get("dia_nacimiento"),
+    #     "mes_nacimiento": request.form.get("mes_nacimiento"),
+    #     "ano_nacimiento": request.form.get("ano_nacimiento"),
+    #     "ciudad": request.form.get("ciudad"),
+    #     "departamento": request.form.get("departamento"),
+    #     "contrasena": request.form.get("contrasena"),
+    #     "autorizaciones": request.form.getlist("autorizaciones")
+    # }
+
+    # insercion --> proceso sql
+    insert_userid = request.json["userid"]
+    insert_nombre = request.json["nombre"]
+    insert_apellido = request.json["apellido"]
+    insert_alias = request.json["alias"]
+    insert_tipoDoc = request.json["tipoDoc"]
+    insert_numeroCelular = request.json["numeroCelular"]
+    insert_email = request.json["email"]
+    insert_direccion = request.json["direccion"]
+    insert_dia_nacimiento = request.json["dia_nacimiento"]
+    insert_mes_nacimiento = request.json["mes_nacimiento"]
+    insert_ano_nacimiento = request.json["ano_nacimiento"]
+    insert_ciudad = request.json["ciudad"]
+    insert_departamento = request.json["departamento"]
+    insert_contrasena = request.json["contrasena"]
+    insert_autorizaciones = request.json["autorizaciones"]
+
+    user_id = db.insert_user(insert_nombre,insert_apellido,insert_alias,insert_tipoDoc,insert_userid,insert_numeroCelular,insert_email,insert_direccion,insert_dia_nacimiento,insert_mes_nacimiento,insert_ano_nacimiento,insert_ciudad,insert_departamento,insert_contrasena,insert_autorizaciones)
+    if user_id:
+        return jsonify({
+            "code": 200,
+            "data": user_id,
+            "status": "ok",
+            "message": "Usuario agregado exitosamente",
+            "timestamp": timestamp()
+        })
+    return jsonify({
+        "code": 500,
+        "data": {},
+        "status": "error",
+        "message": "Error agregando usuario",
+        "timestamp": timestamp()
+        })
+
+@app.route("/updateUser", methods=["PUT"])
+def update_user():
+
     registro = {
-        "correo": request.form.get("correo"),
-        "contrsena": request.form.get("contrasena"),
+        "userid": request.form.get("numero_documento"),
         "nombre": request.form.get("nombre"),
-        "apellidos": request.form.get("apellidos"),
-        "tipo_documento": request.form.get("tipo_documento"),
-        "numero_documento": request.form.get("numero_documento"),
+        "apellido": request.form.get("apellidos"),
+        "alias": request.form.get("alias"),
+        "tipoDoc": request.form.get("tipo_documento"),
+        "numeroCelular": request.form.get("celular"),
+        "email": request.form.get("correo"),
+        "direccion": request.form.get("direccion"),
         "dia_nacimiento": request.form.get("dia_nacimiento"),
         "mes_nacimiento": request.form.get("mes_nacimiento"),
         "ano_nacimiento": request.form.get("ano_nacimiento"),
-        "departamento": request.form.get("departamento"),
         "ciudad": request.form.get("ciudad"),
-        "direccion": request.form.get("direccion"),
-        "celular": request.form.get("celular"),
-        "alias": request.form.get("alias"),
-        "autorizaciones": request.form.getlist("autorizaciones")
+        "departamento": request.form.get("departamento"),
+        "contrasena": request.form.get("contrasena"),
     }
 
+    update_nombre = request.json["nombre"]
+    update_apellido = request.json["apellido"]
+    update_alias = request.json["alias"]
+    update_tipoDoc = request.json["tipoDoc"]
+    update_numeroCelular = request.json["numeroCelular"]
+    update_email = request.json["email"]
+    update_direccion = request.json["direccion"]
+    update_dia_nacimiento = request.json["dia_nacimiento"]
+    update_mes_nacimiento = request.json["mes_nacimiento"]
+    update_ano_nacimiento = request.json["ano_nacimiento"]
+    update_ciudad = request.json["ciudad"]
+    update_departamento = request.json["departamento"]
+    update_contrasena = request.json["contrasena"]
+    update_autorizaciones = request.json["autorizaciones"]
+    
+    
+    id_arg = request.args.get('id')
     # insercion --> proceso sql
-
-    # return redirect(url_for("render_registro"))
-
+    
+    if db.update_user(id_arg,update_nombre,update_apellido,update_alias,update_tipoDoc,update_numeroCelular,update_email,update_direccion,update_dia_nacimiento,update_mes_nacimiento,update_ano_nacimiento,update_ciudad,update_departamento,update_contrasena,update_autorizaciones):
+        user_id = db.view_user(id_arg)
+        return jsonify({
+            "code": 200,
+            "data": user_id,
+            "status": "ok",
+            "message": "Usuario agregado exitosamente",
+            "timestamp": timestamp()
+        })
     return jsonify({
-        "code": 200,
-        "data": registro,
-        "status": "ok",
-        "message": "usuario agregado exitosamente",
+        "code": 500,
+        "data": {},
+        "status": "error",
+        "message": "Error agregando usuario",
         "timestamp": timestamp()
-    })
+        })
+
+    
 
 
 @app.route("/pelicula/<int:id>/", methods=["GET"])
@@ -116,23 +275,32 @@ def render_pelicula(id):
     # )
     # return jsonify(res)
 
+@app.route("/login/", methods=["GET"])
+def render_login():
+    
+    return render_template("login.html", title="login")
+
 
 @app.route("/login/", methods=["POST"])
 def login():
 
     login = {
-        "username": request.form.get("username"),
-        "password": request.form.get("password")
+        "usuario": request.form.get("usuario"),
+        "contrasena": request.form.get("contrasena")
     }
 
+    # inicia base de datos
     user_found = [
         user for user in users
-        if user["username"] == login["username"]
-        and user["password"] == login["password"]
+        if login["usuario"] == user["username"]
+        and login["contrasena"] == user["password"]
     ]
+    # termina base de datos
 
+    # inicia base de datos
     if user_found:
         return render_template("index.html", user=user_found[0], films=films)
+    # termina base de datos
 
     return jsonify({
         "code": 404,
