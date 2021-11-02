@@ -6,7 +6,6 @@ from data.database import DB_Cinema
 from src import create_app
 
 from data.film import films
-from data.user import users
 
 app = create_app()
 app.config.update(
